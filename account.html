@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account | 1LiFE Investment</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .login, .account {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 50px;
+      width: 90%;
+      max-width: 500px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      background: #00f5c3;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid #00f5c3;
+      text-align: left;
+    }
+    th {
+      background-color: rgba(0, 245, 195, 0.2);
+      text-align: center;
+    }
+    .withdraw {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login" id="loginDiv">
+  <h2>Login to Your Account</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+</div>
+
+<div class="account" id="accountDiv" style="display: none;">
+  <h2>Welcome to Your Investment Account</h2>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Account:</th>
+      </tr>
+      <tr>
+        <td id="number">----</td>
+      </tr>
+      <tr>
+        <th>Deposit Balance:</th>
+      </tr>
+      <tr>
+        <td>$<span id="investment">0</span></td>
+      </tr>
+      <tr>
+        <th>Daily Profit (10%):</th>
+      </tr>
+      <tr>
+        <td>$<span id="dailyProfit">0</span></td>
+      </tr>
+      <tr>
+        <th>Transaction Profit:</th>
+      </tr>
+      <tr>
+        <td>$<span id="liveProfit">0.0000</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="withdraw">
+    <button onclick="window.location.href='payment.html'">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+</div>
+
+<script>
+// Accounts badan oo kaydsan
+const accounts = [
+  { username: "123", password: "123", number: "0631234567", investment: 1000 },
+  { username: "234", password: "234", number: "0637654321", investment: 500 },
+  { username: "admin", password: "admin123", number: "0638888888", investment: 2000 }
+];
+
+let currentUser = null;
+let totalProfit = 0;
+let profitPerSecond = 0;
+
+function login() {
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+
+  // Check if account exists
+  const foundUser = accounts.find(acc => acc.username === user && acc.password === pass);
+
+  if (foundUser) {
+    currentUser = foundUser;
+    document.getElementById('loginDiv').style.display = "none";
+    document.getElementById('accountDiv').style.display = "block";
+    showUserData();
+    startProfitIncrement();
+  } else {
+    alert("Username ama Password waa qalad, isku day mar kale!");
+  }
+}
+
+function showUserData() {
+  const dailyProfit = currentUser.investment * 0.10; // 10% profit
+  profitPerSecond = (dailyProfit / 24 / 60 / 60);
+
+  document.getElementById('number').innerText = currentUser.number.slice(0,3) + '****' + currentUser.number.slice(-3);
+  document.getElementById('investment').innerText = currentUser.investment.toFixed(2);
+  document.getElementById('dailyProfit').innerText = dailyProfit.toFixed(2);
+}
+
+function startProfitIncrement() {
+  setInterval(() => {
+    totalProfit += profitPerSecond;
+    document.getElementById('liveProfit').innerText = totalProfit.toFixed(4);
+  }, 1000);
+}
+
+function withdraw() {
+  alert("Fadlan sug 3 maalmood kadib marka aad maalgelisay, kadib ayaad lacagtaada kala bixi kartaa.");
+}
+</script>
+
+</body>
+</html>
