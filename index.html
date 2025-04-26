@@ -1,41 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="so">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAAFIYE Exchange</title>
-    <link rel="stylesheet" href="pay.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1LIFE INVESTMENT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1569025694973-6cfbf2214f3b') no-repeat center center/cover;
+      height: 100%;
+      color: white;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Blur effect */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1px;
+      background: rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 9px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    nav ul li a:hover {
+      color: #00c9a7;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 600px;
+    }
+
+    .icons {
+      margin-top: 30px;
+      font-size: 2em;
+    }
+
+    .icons i {
+      margin: 0 15px;
+      transition: transform 0.3s;
+    }
+
+    .icons i:hover {
+      transform: scale(1.3);
+      color: #00c9a7;
+    }
+
+    button {
+      margin-top: 30px;
+      background: #00c9a7;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    button:hover {
+      background: #009e7d;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Cryptocurrency Section */
+    .cryptos {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cryptos h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #00c9a7;
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .crypto-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 20px;
+      border-radius: 20px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .crypto-item:hover {
+      transform: translateY(-10px);
+      background: rgba(0, 201, 167, 0.2);
+    }
+
+    .crypto-item i {
+      font-size: 3em;
+      margin-bottom: 15px;
+      color: #00c9a7;
+    }
+
+    .crypto-item p {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="kaafiye-logo.jpg" alt="KAAFIYE Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="pay.html">Withdraw</a></li>
-                <li><a href="LmPM.html">Deposit</a></li>
-                
-            </ul>
-        </nav>
-    </header>
+  <nav>
+    <div class="logo">
+      <img src="1life.png" width="100px" alt="1Life Logo">
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about(6).html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section class="main">
-        <h4>Exchange your funds easily, quickly and securely.</h4>
+  <div class="content">
+    <h1>Maalgashi Cryptocurrency</h1>
+    <p>Iibso qayb ka mid ah mustaqbalka. Maalgashi sugan oo kugu dhisan!</p>
+    <div class="icons">
+      <i class="fas fa-coins"></i>
+      <i class="fas fa-chart-line"></i>
+      <i class="fas fa-piggy-bank"></i>
+    </div>
+    <button onclick="location.href='join.html'">Bilow Maalgashiga</button>
+    <button onclick="location.href='account.html'">Account</button>
+  </div>
 
-        <div class="buttons-container">
-            <a href="pay.html" class="btn">PERFECT MONEY TO LOCAL MONEY</a>
-            
-            <a href="LmPM.html" class="btn">LOCAL MONEY TO PERFECT MONEY</a>
-        
-        </div>
-                            <br>
-        <div
-            <a href="crypto.html" class="btn">CRYPTO TO LOCAL MONEY</a>
-        </div>
+  <section class="cryptos">
+    <h2>Cryptocurrencies Caan Ah</h2>
+    <div class="crypto-grid">
+      <div class="crypto-item">
+        <i class="fab fa-bitcoin"></i>
+        <p>Bitcoin (BTC) - Most Popular</p>
+      </div>
+      <div class="crypto-item">
+        <i class="fab fa-ethereum"></i>
+        <p>Ethereum (ETH) - Smart Contracts Blockchain</p>
 
-    </section>
+      </div>
+      <div class="crypto-item">
+        <i class="fab fa-monero"></i>
+        <p>Monero (XMR) - Secret and Secure</p>
+      </div>
+    </div>
+  </section>
 
 </body>
-</html>
+    </html>
