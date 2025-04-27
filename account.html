@@ -54,6 +54,22 @@
     .withdraw {
       margin-top: 30px;
     }
+    .balance-container {
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .balance-container h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .balance-container #totalBalance {
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -67,6 +83,12 @@
 
 <div class="account" id="accountDiv" style="display: none;">
   <h2>Welcome to Your Investment Account</h2>
+
+  <!-- Total Balance Section -->
+  <div class="balance-container">
+    <h3>Total Balance</h3>
+    <div id="totalBalance">$0.00</div>
+  </div>
 
   <table>
     <tbody>
@@ -104,7 +126,7 @@
 </div>
 
 <script>
-// Accounts badan oo kaydsan
+// Accounts kaydsan
 const accounts = [
   { username: "123", password: "123", number: "0631234567", investment: 1000 },
   { username: "234", password: "234", number: "0637654321", investment: 500 },
@@ -140,19 +162,28 @@ function showUserData() {
   document.getElementById('number').innerText = currentUser.number.slice(0,3) + '****' + currentUser.number.slice(-3);
   document.getElementById('investment').innerText = currentUser.investment.toFixed(2);
   document.getElementById('dailyProfit').innerText = dailyProfit.toFixed(2);
+  updateTotalBalance();
 }
 
 function startProfitIncrement() {
   setInterval(() => {
     totalProfit += profitPerSecond;
     document.getElementById('liveProfit').innerText = totalProfit.toFixed(4);
+    updateTotalBalance();
   }, 1000);
 }
 
+function updateTotalBalance() {
+  const deposit = currentUser ? currentUser.investment : 0;
+  const daily = currentUser ? currentUser.investment * 0.10 : 0;
+  const total = deposit + daily;
+  document.getElementById('totalBalance').innerText = `$${total.toFixed(2)}`;
+}
+
 function withdraw() {
-  alert("Fadlan sug 3 maalmood kadib marka aad maalgelisay, kadib ayaad lacagtaada kala bixi kartaa.");
+  alert("Please wait 3 days after you have invested, then you can withdraw your money.");
 }
 </script>
 
 </body>
-</html>
+      </html>
