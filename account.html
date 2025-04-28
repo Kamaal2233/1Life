@@ -70,6 +70,13 @@
       font-weight: bold;
       margin-top: 10px;
     }
+    /* Referral section yar, background la'aan, jaalle */
+    .referral-container {
+      margin-bottom: 15px;
+      font-size: 12px;
+      color: #FFD700;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -82,6 +89,12 @@
 </div>
 
 <div class="account" id="accountDiv" style="display: none;">
+
+  <!-- Referral ka sare -->
+  <div class="referral-container">
+    <span id="referral">----</span>
+  </div>
+
   <h2>Welcome to Your Investment Account</h2>
 
   <!-- Total Balance Section -->
@@ -123,14 +136,15 @@
     <button onclick="window.location.href='payment.html'">Deposit</button>
     <button onclick="withdraw()">Withdraw</button>
   </div>
+
 </div>
 
 <script>
 // Accounts kaydsan
 const accounts = [
-  { username: "abdirahmaniskoor2@gmail.com", password: "XX28682270X", number: "abdirahmaniskoor2@gmail.com", investment: 0 },
-  { username: "abdirahmanmohomet@gmail.com", password: "62840", number: "abdirahmanmohomet@gmail.com", investment: 200 },
-  { username: "admin", password: "admin123", number: "0638888888", investment: 2000 }
+  { username: "abdirahmaniskoor2@gmail.com", password: "XX28682270X", number: "abdirahmaniskoor2@gmail.com", investment: 0, referral: "REF123" },
+  { username: "abdirahmanmohomet@gmail.com", password: "62840", number: "abdirahmanmohomet@gmail.com", investment: 200, referral: "REF456" },
+  { username: "2233", password: "2233", number: "0638888888", investment: 2000, referral: "REF789" }
 ];
 
 let currentUser = null;
@@ -141,7 +155,6 @@ function login() {
   const user = document.getElementById('username').value;
   const pass = document.getElementById('password').value;
 
-  // Check if account exists
   const foundUser = accounts.find(acc => acc.username === user && acc.password === pass);
 
   if (foundUser) {
@@ -156,12 +169,13 @@ function login() {
 }
 
 function showUserData() {
-  const dailyProfit = currentUser.investment * 0.10; // 10% profit
+  const dailyProfit = currentUser.investment * 0.10;
   profitPerSecond = (dailyProfit / 24 / 60 / 60);
 
   document.getElementById('number').innerText = currentUser.number.slice(0,3) + '****' + currentUser.number.slice(-3);
   document.getElementById('investment').innerText = currentUser.investment.toFixed(2);
   document.getElementById('dailyProfit').innerText = dailyProfit.toFixed(2);
+  document.getElementById('referral').innerText = "Referral Code: " + currentUser.referral;
   updateTotalBalance();
 }
 
@@ -186,4 +200,4 @@ function withdraw() {
 </script>
 
 </body>
-      </html>
+                                           </html>
