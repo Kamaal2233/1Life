@@ -70,7 +70,7 @@
       font-weight: bold;
       margin-top: 10px;
     }
-    /* Referral section yar, background la'aan, jaalle */
+    /* ID section yar, background la'aan, jaalle */
     .referral-container {
       margin-bottom: 15px;
       font-size: 12px;
@@ -90,9 +90,9 @@
 
 <div class="account" id="accountDiv" style="display: none;">
 
-  <!-- Referral ka sare -->
+  <!-- ID ka sare -->
   <div class="referral-container">
-    <span id="referral">----</span>
+    <span id="userID">----</span>
   </div>
 
   <h2>Welcome to Your Investment Account</h2>
@@ -142,9 +142,9 @@
 <script>
 // Accounts kaydsan
 const accounts = [
-  { username: "abdirahmaniskoor2@gmail.com", password: "XX28682270X", number: "abdirahmaniskoor2@gmail.com", investment: 0, ID: "1298823" },
-  { username: "abdirahmanmohomet@gmail.com", password: "62840", number: "abdirahmanmohomet@gmail.com", investment: 100, ID: "123456" },
-  { username: "Koobka56@gmail.com", password: "070012laal", number: "Koobka56@gmail.com", investment: 0, ID: "124789" }
+  { username: "abdirahmaniskoor2@gmail.com", password: "XX28682270X", number: "abdirahmaniskoor2@gmail.com", investment: 0, ID: "2123421" },
+  { username: "abdirahmanmohomet@gmail.com", password: "62840", number: "abdirahmanmohomet@gmail.com", investment: 100, ID: "2023312" },
+  { username: "Koobka56@gmail.com", password: "070012laal", number: "Koobka56@gmail.com", investment: 0, ID: "212383" }
 ];
 
 let currentUser = null;
@@ -175,7 +175,7 @@ function showUserData() {
   document.getElementById('number').innerText = currentUser.number.slice(0,3) + '****' + currentUser.number.slice(-3);
   document.getElementById('investment').innerText = currentUser.investment.toFixed(2);
   document.getElementById('dailyProfit').innerText = dailyProfit.toFixed(2);
-  document.getElementById('referral').innerText = "Referral Code: " + currentUser.referral;
+  document.getElementById('userID').innerText = "ID: " + currentUser.ID;
   updateTotalBalance();
 }
 
@@ -200,4 +200,4 @@ function withdraw() {
 </script>
 
 </body>
-                                           </html>
+  </html>
